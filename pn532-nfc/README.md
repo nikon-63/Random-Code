@@ -1,7 +1,21 @@
 # pn532-nfc
 
+> [!NOTE]  
+> The python code is AI generated but tested and working. It was reqired just for a small run of flashing NFC tags for a project, push to git for storage and sharing if ever needed again. The code is not intended for production. 
+
 ## Overview
 
+The script is designed for bulk flashing NFC tags. When a compatible NFC tag is placed on the reader, the script detects the tag, writes the configured URL as an NDEF URI record, reads the tag back to verify the write was successful, and then waits for the tag to be removed before processing the next one.
+
+The script is intended for NFC Forum Type 2 tags such as:
+
+| Tag Type | Supported |
+|---|---|
+| `NTAG213` | Yes |
+| `NTAG215` | Yes |
+| `NTAG216` | Yes |
+
+The script does not lock the tags, so they can be rewritten later. It is written for the PN532 module using SPI on a Raspberry Pi.
 
 ## Setup
 1. Enable SPI on Raspberry Pi (Interface Options > SPI)
